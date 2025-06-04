@@ -18,6 +18,7 @@ Advanced E-Commerce system using Microservices (incl. Event driver architecture)
 <li><b>Inventory Service</b>: to manage products and its inventory </li>
 <li><b>Notification Service</b>: to send notifications to users </li>
 <li><b>Payment Service</b>: to manage post-order payments </li>
+<li><b>User Service</b>: to manage users</li>
 </ul>
 
 ### Client Facing APIs (Implemented with REST)
