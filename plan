@@ -1,0 +1,57 @@
+1) admin-api
+  
+/users
+  POST / - create user
+  
+/products
+  POST / - create project
+  
+2) customer-api
+
+/products
+  GET / - search products
+  GET /:id - get product by id
+
+/cart
+  GET / - get cart items
+  POST / - add product to cart
+  DELETE / - remove all cart items
+
+/orders
+  POST / - place order
+  
+/payments
+  POST /:id - process payment
+  
+2) inventory-service
+
+>>>> Functions
+
+GetProduct (productId) 
+returns: product information
+emits: 
+  ProductViewed
+
+GetProducts (searchTerm, limit, offset) 
+returns: a list of products matching the filters
+
+IsProductInStock(productId) 
+returns: the availability of a product in boolean (true if available and false otherwise)
+
+AddToCart(productId)
+returns: nothing if successfully added to card otherwise an error
+emits:
+  ProductAddedInCart
+
+3) order-service
+
+>>>> Functions
+
+PlaceOrder (CartId) 
+returns: placed order details if placed correctly otherwise an error
+emits:
+  ProductOrdered
+
+4) payment-service
+
+>>>> Functions

@@ -1,0 +1,62 @@
+carts
+{
+  id: string,
+  user_id: string,
+  items: {
+    product_id: string,
+    quantity: number,
+    price: float  
+  }[],
+  total_cart_value: float,
+  status: status,
+  created_at: string,
+  modified_at: string
+}  
+
+
+products
+{
+  id: string,
+  name: string,
+  quantity: number,
+  created_at: string,
+  modified_at: string
+}
+
+users
+{
+  id: string,
+  first_name: string,
+  last_name: string,
+  email: string,
+  created_at: string,
+  modified_at: string
+}
+
+orders
+{
+  id: string,
+  user_id: string,
+  user_snapshot: {
+    name: string,
+    email: string
+  }
+  items: {
+    id: string,
+    name: string,
+    quantity: number,
+    price: float,
+    item_total: float
+  }[],
+  total_amount: float,
+  status: status,
+  created_at: string,
+  modified_at: string
+} 
+
+events
+{
+  id: string,
+  event_name: string,
+  event_data: string
+}
