@@ -11,6 +11,7 @@ async function bootstrap() {
       transport: Transport.GRPC,
       options: {
         package: 'user',
+        url: 'localhost:5001',
         protoPath: `node_modules/@app/protos/${UserProtoFile}`,
         onLoadPackageDefinition: (pkg, server) => {
           new ReflectionService(pkg).addToServer(server);
