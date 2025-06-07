@@ -15,6 +15,10 @@ export class UsersService implements OnModuleInit {
   
   constructor(@Inject('USER_PACKAGE') private client: ClientGrpc) {}
   
+  onModuleInit() {
+    this.userClientService = this.client.getService<UserClientService>('UsersService');
+  }
+  
   create(createUserDto: CreateUserDto) {
     const user = {
       firstName: createUserDto.first_name,
@@ -23,9 +27,5 @@ export class UsersService implements OnModuleInit {
     };
     
     return this.userClientService.Create(user)
-  }
-  
-  onModuleInit() {
-    this.userClientService = this.client.getService<UserClientService>('UsersService');
   }
 }
