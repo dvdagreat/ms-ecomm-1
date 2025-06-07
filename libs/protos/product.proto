@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package product;
+
+service ProductsService{
+  rpc Create(Product) returns (ProductCreateResponse);
+}
+
+message Product {
+  string title = 1;
+  int32 quantity = 2;
+}
+
+message ProductCreateResponse {
+  bool isCreated = 1;
+}
