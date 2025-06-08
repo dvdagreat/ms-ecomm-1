@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { ProductsController } from './products.controller';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { ProductProtoFile } from '@app/protos';
 
 @Module({
   imports: [
@@ -13,7 +12,7 @@ import { ProductProtoFile } from '@app/protos';
         options: {
           package: 'product',
           url: 'localhost:5002',
-          protoPath: `node_modules/@app/protos/${ProductProtoFile}`
+          protoPath: `../../protos/product.proto`
         }
       }
     ])

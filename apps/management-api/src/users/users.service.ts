@@ -1,11 +1,11 @@
 import { Inject, Injectable, OnModuleInit } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { ClientGrpc } from '@nestjs/microservices';
-import { CreateUserRequest, CreateUserResponse } from './interface';
+import { UserCreateRequest, UserCreateResponse} from '@app/protos/user';
 import { Observable } from 'rxjs';
 
 interface UserClientService {
-  Create: (req: CreateUserRequest) => Observable<CreateUserResponse>;
+  Create: (req: UserCreateRequest) => Observable<UserCreateResponse>;
 }
 
 @Injectable()

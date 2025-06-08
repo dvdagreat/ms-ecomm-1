@@ -1,8 +1,14 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "sourceRoot": "../../",
+  "root":"apps/management-api",
+  "entryFile": "main",
   "compilerOptions": {
-    "deleteOutDir": true
-  }
+    "deleteOutDir": true,
+    "assets": [
+      "protos/*.proto"
+    ],
+    "watchAssets": true
+  } 
 }
