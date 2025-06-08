@@ -7,10 +7,16 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "exports": {
-    ".": "./index.ts"
+    "./product": "./product.ts",
+    "./user": "./user.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.11.0"
+  "packageManager": "pnpm@10.11.0",
+  "dependencies": {
+    "@bufbuild/connect": "^0.13.0",
+    "@bufbuild/protobuf": "^2.5.2",
+    "@grpc/grpc-js": "^1.13.4"
+  }
 }
