@@ -2,13 +2,13 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { User } from './schemas/user';
 import { Model } from 'mongoose';
-import { CreateUserRequest } from './interfaces';
+import { UserCreateRequest } from '@app/protos/user';
 
 @Injectable()
 export class AppService {
   constructor(@InjectModel(User.name) private userModel: Model<User>) {}
   
-  public async create(data: CreateUserRequest): Promise<boolean> {
+  public async create(data: UserCreateRequest): Promise<boolean> {    
     const user = new this.userModel({
       email: data.email,
       first_name: data.firstName,
