@@ -10,4 +10,9 @@ export class AppController {
   userCreated(@Payload() data: any) {
     this.appService.userCreated(data);
   }
+  
+  @EventPattern('ProductCreated')
+  productCreated(@Payload() data: any) {
+    this.appService.productCreated(data);
+  }
 }

@@ -8,11 +8,28 @@ import { EventPattern } from '@nestjs/microservices';
 export class AppService {
   constructor(@InjectModel(Event.name) private eventModel: Model<Event>) {}
   
-  @EventPattern('UserCreated')
   public async userCreated(data: any) {
     const event = new this.eventModel({
       message: data,
       type: 'UserCreated'
+    })
+    
+    try {
+      const result = await event.save();
+      console.log(JSON.parse(JSON.stringify(result)))
+    } catch(error: unknown) {
+      console.error(error);
+      
+      if(error instanceof Error) {
+        console.log(error)
+      }
+    }
+  }
+
+  public async productCreated(data: any) {
+    const event = new this.eventModel({
+      message: data,
+      type: 'ProductCreated'
     })
     
     try {
