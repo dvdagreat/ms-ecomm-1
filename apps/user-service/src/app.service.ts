@@ -32,9 +32,8 @@ export class AppService {
       }
     }
     const pattern = 'UserCreated';
-    
-    this.analyticsQueueClient.send('UserCreated', result).subscribe({
-      next: () => console.log(`Event "${pattern}" sent successfully to RabbitMQ.`),
+    this.analyticsQueueClient.send(pattern, result).subscribe({
+      complete: () => console.log(`Event "${pattern}" sent successfully to RabbitMQ.`),
       error: (err) => console.error(`Failed to send event "${pattern}" to RabbitMQ:`, err),
     })
     
